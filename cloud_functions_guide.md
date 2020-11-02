@@ -25,7 +25,7 @@ This guide is intended for new users of Google Cloud Functions who possess some 
 # **Concepts**
 
 ## Serverless
-In the past, organizations needed to [set up, manage, and update servers](https://cloud.google.com/functions/docs/concepts/overview#serverless) in order to run their applications. However, cloud providers like Google Cloud Platform now offer serverless capabilities, which handle all the [infrastructure administration](https://medium.com/techmagic/serverless-vs-docker-what-to-choose-in-2019-80cb80f4b680) for us. In other words, serverless computing allows us to just focus on writing and deploying the code.
+In the past, organizations needed to [set up, manage, and update servers](https://cloud.google.com/functions/docs/concepts/overview#serverless) in order to run their applications. However, cloud providers like Google Cloud Platform now offer serverless capabilities, which handle all the [infrastructure administration](https://medium.com/techmagic/serverless-vs-docker-what-to-choose-in-2019-80cb80f4b680) for us. In other words, serverless computing allows developers to just focus on writing and deploying the code.
 
 Google Cloud Platform features multiple [serverless options](https://cloud.google.com/serverless-options), including Cloud Functions.
 
@@ -131,4 +131,4 @@ Cloud Functions' lightweight and flexible characteristics lend themselves to man
 
 You can find additional information relating to Google Cloud Functions such as tutorials and API Reference documentation [here](https://cloud.google.com/functions/docs).
 
-Similarly, to see a practical workflow using Cloud Functions with other Google Cloud Platform tools such as Pub/Sub and BigQuery, refer to the following [guide](https://github.com/JohnYoon13/GCP/blob/master/gcp.md).
+To see a practical workflow using Cloud Functions with other Google Cloud Platform tools such as Pub/Sub and BigQuery, refer to the following [guide](https://github.com/JohnYoon13/GCP/blob/master/gcp.md).
