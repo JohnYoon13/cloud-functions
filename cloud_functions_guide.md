@@ -1,8 +1,8 @@
 # **Introduction to Cloud Functions**
 
-In this guide we explore Google Cloud Platform's Cloud Functions.
+This introductory level guide describes how to use Google Cloud Platform's Cloud Functions.
 
-Google defines their own product as [such](https://cloud.google.com/functions/docs/concepts/overview):
+Google defines its own product as [such](https://cloud.google.com/functions/docs/concepts/overview):
 ```
 "Google Cloud Functions is a serverless execution environment for building and connecting cloud services. 
 With Cloud Functions you write simple, single-purpose functions that are attached to events emitted from your cloud infrastructure and services. 
@@ -10,6 +10,10 @@ Your function is triggered when an event being watched is fired. Your code execu
 There is no need to provision any infrastructure or worry about managing any servers."
 ```
 Google's definition of Cloud Functions raises several key concepts. This guide will explore these ideas and more. For now though, consider Cloud Functions as simply a bit of code that runs in the cloud without requiring much infrastructure management from the developer.
+
+## Before you begin
+
+This guide is intended for new users of Google Cloud Functions who possess some familiarity with Google Cloud products and software development. In order to properly use this guide, you will require a Google account and access to a Google Cloud [project](https://cloud.google.com/resource-manager/docs/creating-managing-projects). 
 
 ## Guide overview
 
@@ -30,20 +34,20 @@ Google Cloud Platform features multiple [serverless options](https://cloud.googl
 ## Stateless
 Google Cloud Platform describes Cloud Functions as [stateless—"one function invocation should not rely on in-memory state set by a previous invocation."](https://cloud.google.com/functions/docs/concepts/exec#stateless_functions)
 
-In contrast, *stateful* applications retains data from previous usage in order to facilitate future usage. A computer terminal possesses stateful characteristics, in the way it remembers prior command line inputs. On the other hand, a calculator demonstrates stateless properties, in the way it resets to zero after every operation's completion.
+In contrast, *stateful* applications retain data from previous usage in order to facilitate future usage. A computer terminal is stateful in that it remembers prior command line inputs. On the other hand, a calculator, which resets to zero after the completion of every operation, is stateless.
 
 Cloud Functions' stateless nature provides [advantages](https://medium.com/@rachna3singhal/stateless-over-stateful-applications-73cbe025f07) such as speed and the ability to easily scale an application by deploying it on multiple servers.
 
 <img src="https://github.com/JohnYoon13/cloud-functions/blob/master/images/stateless.png" width="600" height="600" />
 
 ## Scalable
-Stemming from the previous two concepts relating to severless and stateless, scalability presents itself as another powerful Cloud Functions feature. 
+Scalability is another powerful Cloud Functions feature. 
 
-Without needing to manually manage configurations for scalability, users can benefit from Cloud Functions' capacity to automatically adjust to rapidly changing request levels. When incoming traffic increases significantly, "[scaling](https://cloud.google.com/functions/docs/max-instances) is achieved by creating new instances of your function. Each of these instances can only handle one request at a time, so large spikes in request volume might result in creating many instances."
+Users can benefit from Cloud Functions' capacity to automatically adjust to rapidly changing request levels. When incoming traffic increases significantly, "[scaling features](https://cloud.google.com/functions/docs/max-instances) create new instances of your function. Each of these instances can only handle one request at a time, so large spikes in request volume might create many instances."
 
 ## Events and triggers
 
-Google Cloud Platform's products such as Google Cloud Storage or Pub/Sub possess event capabilities. For instance, if Google Cloud Storage receives a new image, it also registers that an event occured. 
+Google Cloud Platform's products such as Google Cloud Storage and Pub/Sub possess event capabilities. For instance, if Google Cloud Storage receives a new image, it also registers that an event occured. 
 
 With this in mind, Cloud Functions have [triggers](https://cloud.google.com/functions/docs/concepts/events-triggers#triggers) that activate whenever a specified event occurs. So if a new image enters Google Cloud Storage, the Cloud Functions' trigger notices the event, and the Cloud Function can grab the image to modify it and output it to another destination.
 
@@ -59,7 +63,7 @@ With this in mind, Cloud Functions have [triggers](https://cloud.google.com/func
 <img src="https://github.com/JohnYoon13/cloud-functions/blob/master/images/event.png" width="700" height="500" />
 
 ## Summary
-Cloud Functions serve as a tool for creating stateless and event-driven functions that can quickly scale to meet demand, all without managing server overhead.
+Cloud Functions create stateless and event-driven functions that can quickly scale to meet demand, all without managing server overhead.
 
 ---
 # **Steps to create a Cloud Function**
@@ -67,13 +71,13 @@ Creating a Cloud Function through Google Cloud Platform's interface can translat
 
 **0.** Set up a Google Cloud Platform [project](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
 
-**1.** Open the navigation menu located in the project landing page's upper left corner.
+**1.** Open the navigation menu located in the upper left corner of the project landing page
 
 <img src="https://github.com/JohnYoon13/cloud-functions/blob/master/images/00.start-nav.png"/>
 
 ---
 
-**2.** Go to the **COMPUTE** section and select *Cloud Functions*. Optionally, pin *Cloud Functions* for easier access to it in the future.
+**2.** Go to the **COMPUTE** section and select *Cloud Functions*. Pin Cloud Functions for easier access in the future.
 
 <img src="https://github.com/JohnYoon13/cloud-functions/blob/master/images/0.start.png" width="400" height="600" />
 
@@ -91,7 +95,7 @@ Creating a Cloud Function through Google Cloud Platform's interface can translat
 
 ---
 
-**5.** Save the results and press *Next*. This will lead to the page where the source code resides. Under *Runtime*, select a programming language, such as Python. Then implement your source code in *main.py*; in this case, the code contains a simple "Hello World" print statement. Furthermore, verify that the *requirements.txt* file contains all the required libraries and packages. Finally, choose the [*Entry Point*](https://cloud.google.com/functions/docs/concepts/exec), which specifies the function name that the Cloud Function will execute.
+**5.** Save the results and press *Next*. This will lead to the source code page. Under *Runtime*, select a programming language, such as Python. Then implement your source code in *main.py*; in this case, the code contains a simple "Hello World" print statement. Then, verify that the *requirements.txt* file contains all the required libraries and packages. Finally, choose the [*Entry Point*](https://cloud.google.com/functions/docs/concepts/exec), which specifies the function name that the Cloud Function will execute.
 
 <img src="https://github.com/JohnYoon13/cloud-functions/blob/master/images/3.setup.png" width="700" height="600" />
 
@@ -109,7 +113,7 @@ Creating a Cloud Function through Google Cloud Platform's interface can translat
 
 ---
 
-**8.** To confirm that the application correctly generates the expected "Hello World" print statement, select the function and choose the *View Logs* option. If necessary, the *Edit* feature allows for any future updates to the source code. 
+**8.** To confirm that the application correctly generates the expected "Hello World" print statement, select the function and choose the *View Logs* option. Use the *Edit* feature to update the source code if necessary.
 
 <img src="https://github.com/JohnYoon13/cloud-functions/blob/master/images/6.logs.png"/>
 
@@ -121,9 +125,10 @@ Cloud Functions' lightweight and flexible characteristics lend themselves to man
 
 <img src="https://github.com/JohnYoon13/cloud-functions/blob/master/images/use.png"/>
 
-To see a practical workflow using Cloud Functions with other Google Cloud Platform tools such as Pub/Sub and BigQuery, refer to the following [guide](https://github.com/JohnYoon13/GCP/blob/master/gcp.md).
-
 ---
 
+# Next steps
 
+You can find additional information relating to Google Cloud Functions such as tutorials and API Reference documentation [here](https://cloud.google.com/functions/docs).
 
+Similarly, to see a practical workflow using Cloud Functions with other Google Cloud Platform tools such as Pub/Sub and BigQuery, refer to the following [guide](https://github.com/JohnYoon13/GCP/blob/master/gcp.md).
